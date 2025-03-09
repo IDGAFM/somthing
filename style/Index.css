@@ -808,15 +808,11 @@ canvas {
 
   }
 
-  * {
-  margin: -2px;
-  box-sizing: border-box;
-}
+
 
   .calendar {
     max-width: 100%;
     grid-template-columns: repeat(4, 1fr);
-    padding: 3px;
 }
 
   .bottom-section {
