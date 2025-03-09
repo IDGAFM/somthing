@@ -800,67 +800,6 @@ canvas {
 }
 
 /* 📱 Адаптация под мобильные устройства (до 768px) */
-@media (max-width: 828px) {
-  .calendar-container {
-    width: 100%;
-    max-width: 100%;
-    margin-top: 50px;
-  }
-
-  .calendar {
-    max-width: 750px;
-    grid-template-columns: repeat(5, 1fr);
-    padding: 15px;
-  }
-
-  .bottom-section {
-    flex-direction: column;
-    align-items: center;
-    gap: 15px;
-  }
-
-  .day {
-    min-height: 100px;
-    width: 100px;
-    font-size: 14px;
-    padding: 5px;
-  }
-
-  .day-number {
-    font-size: 14px;
-    padding: 3px 6px;
-  }
-
-  .track-info {
-    font-size: 10px;
-    padding: 6px;
-  }
-
-  .progress-bar {
-    height: 4px;
-  }
-
-  .play-button {
-    font-size: 10px;
-    padding: 6px 10px;
-  }
-
-  .cover {
-    width: 80%;
-  }
-
-  .notes, .priority {
-    width: 100%;
-  }
-
-  .controls {
-    bottom: 15px;
-    left: 85%;
-    border-radius: 12px;
-    padding: 12px 18px;
-  }
-}
-
 @media (max-width: 768px) {
   .calendar-container {
       width: 100%;
@@ -869,10 +808,15 @@ canvas {
 
   }
 
+  * {
+  margin: -2px;
+  box-sizing: border-box;
+}
+
   .calendar {
     max-width: 100%;
     grid-template-columns: repeat(4, 1fr);
-    padding: 10px;
+    padding: 3px;
 }
 
   .bottom-section {
