@@ -1,0 +1,877 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100vw;
+    background-color: #fff;
+    font-family: Arial, sans-serif;
+    overflow: hidden;
+    overflow-y: auto; /* Вертикальный скролл */
+}
+.counter-container {
+  width: 30%;
+  height: 80%;
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+  align-items: center;
+  background: #ffe6e6;
+  border-radius: 20px;
+  padding: 20px;
+}
+
+.video-container {
+    width: 90%;
+    height: 100%;
+    overflow: hidden;
+    border-radius: 22px;
+}
+
+.video-container video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+
+.counter-box {
+    width: 90%;
+    padding: 15px;
+    text-align: center;
+    font-size: 20px;
+    margin: 10px 0;
+    background: white;
+    border-radius: 10px;
+}
+
+
+.gift-button {
+    padding: 12px 20px;
+    font-size: 18px;
+    background-color: white;
+    color: black;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 0.3s;
+    width: 90%;
+    padding: 15px;
+    text-align: center;
+    font-size: 20px;
+    margin: 10px 0;
+    background: white;
+    border-radius: 10px;
+}
+
+.gift-button:hover {
+    background-color: #e03e5a;
+}
+
+.hearts-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+.heart {
+    position: absolute;
+    color: red;
+    font-size: 24px;
+    opacity: 0;
+    animation: floatUp 2s linear forwards;
+}
+
+@keyframes floatUp {
+    0% {
+        transform: translateY(0) scale(1);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-100px) scale(1.5);
+        opacity: 0;
+    }
+}
+
+
+.calendar-container {
+  width: 80%;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.calendar {
+  width: 100%;
+  max-width: 900px;
+  display: grid;
+  border: 1px solid #333;
+  grid-template-columns: repeat(7, 1fr);
+  grid-template-rows: repeat(6, 1fr);
+  gap: 5px;
+}
+
+.day {
+  border: 1px solid #333;
+  min-height: 120px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 5px;
+  font-size: 18px;
+  border-radius: 10px;
+  position: relative;
+  overflow: hidden;
+  background-size: cover;
+  background-position: center;
+  color: white;
+  text-shadow: 1px 1px 3px black;
+}
+
+.day-number {
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  font-size: 16px;
+  font-weight: bold;
+  padding: 3px 6px;
+  border-radius: 5px;
+}
+
+.special-day {
+  background: url('assets/img/home.png') center/cover no-repeat;
+  border-radius: 10px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  color: white;
+  text-shadow: 1px 1px 3px black;
+  padding: 10px;
+}
+.track-info {
+  padding: 10px;
+  border-radius: 10px;
+  text-align: center;
+  font-size: 10px;
+  width: 100%;
+}
+.progress-bar {
+  width: 100%;
+  height: 5px;
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 3px;
+  overflow: hidden;
+  margin: 5px 0;
+}
+.progress {
+  height: 100%;
+  width: 10%;
+  background: #ff5e62;
+}
+.play-button {
+  background: #ff5e62;
+  border: none;
+  color: white;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+
+.play-button:hover {
+  background: #ff3b3f;
+}
+
+.cover {
+    width: 80%;
+    border-radius: 10px;
+    margin-top: 5px;
+}
+
+.play-button {
+    background: #ff5e62;
+    border: none;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+
+
+.bottom-section {
+    width: 100%;
+    max-width: 900px;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+
+.notes, .priority {
+    width: 48%;
+    text-align: left;
+    font-size: 16px;
+}
+
+.notes textarea, .priority textarea {
+    width: 100%;
+    height: 80px;
+    border: 1px solid black;
+}
+.controls {
+  display: flex;
+  gap: 10px;
+  padding: 10px;
+}
+
+.button {
+    padding: 10px 20px;
+    font-size: 18px;
+    background-color: black;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+
+
+canvas {
+    width: 100dvmin;
+    aspect-ratio: 1;
+    z-index: 1;
+  }
+  
+  .buttons {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    display: flex;
+    gap: 20px;
+  }
+  button {
+    padding: 10px 20px;
+    font-size: 1.2em;
+    border: none;
+    background: #D43F5E;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+  }
+  button:hover {
+    background: #B52E4C;
+  }
+  
+  
+  .container * {
+    -webkit-animation-play-state: paused !important;
+    animation-play-state: paused !important;
+  } 
+  .bubbles {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    pointer-events: none;
+  }
+  
+  .bubble {
+    position: absolute;
+    z-index: 200;
+    border-radius: 50%;
+    
+  }
+  .bubble:nth-child(1) {
+    top: 8%;
+    left: 60%;
+  
+    height: 11vmin;
+    width: 11vmin;
+    -webkit-animation: love-burst 3s infinite 0s;
+    animation: love-burst 3s infinite 0s;
+    box-shadow: inset 0 0 0 5.5vmin transparent;
+    -webkit-transform: translate(0, 0.05em) scale(0);
+    transform: translate(0, 0.05em) scale(0);
+    -webkit-transform-origin: center bottom;
+    transform-origin: center bottom;
+  }
+  .bubble:nth-child(2) {
+    top: 83%;
+    left: 14%;
+    height: 20vmin;
+    width: 20vmin;
+    -webkit-animation: love-burst 3s infinite 0.15s;
+    animation: love-burst 3s infinite 0.15s;
+    box-shadow: inset 0 0 0 10vmin transparent;
+    -webkit-transform: translate(0, 0.75em) scale(0);
+    transform: translate(0, 0.75em) scale(0);
+    -webkit-transform-origin: center bottom;
+    transform-origin: center bottom;
+  }
+  .bubble:nth-child(3) {
+    top: 25%;
+    left: 49%;
+    height: 4vmin;
+    width: 4vmin;
+    -webkit-animation: love-burst 3s infinite 0.3s;
+    animation: love-burst 3s infinite 0.3s;
+    box-shadow: inset 0 0 0 2vmin transparent;
+    -webkit-transform: translate(0, 0.5em) scale(0);
+    transform: translate(0, 0.5em) scale(0);
+    -webkit-transform-origin: center bottom;
+    transform-origin: center bottom;
+  }
+  .bubble:nth-child(4) {
+    top: 63%;
+    left: 93%;
+    height: 3vmin;
+    width: 3vmin;
+    -webkit-animation: love-burst 3s infinite 0.45s;
+    animation: love-burst 3s infinite 0.45s;
+    box-shadow: inset 0 0 0 1.5vmin transparent;
+    -webkit-transform: translate(0, 0.35em) scale(0);
+    transform: translate(0, 0.35em) scale(0);
+    -webkit-transform-origin: center bottom;
+    transform-origin: center bottom;
+  }
+  .bubble:nth-child(5) {
+    top: 7%;
+    left: 56%;
+    height: 18vmin;
+    width: 18vmin;
+    -webkit-animation: love-burst 3s infinite 0.6s;
+    animation: love-burst 3s infinite 0.6s;
+    box-shadow: inset 0 0 0 9vmin transparent;
+    -webkit-transform: translate(0, 0.3em) scale(0);
+    transform: translate(0, 0.3em) scale(0);
+    -webkit-transform-origin: center bottom;
+    transform-origin: center bottom;
+  }
+  .bubble:nth-child(6) {
+    top: 10%;
+    left: 68%;
+    height: 5vmin;
+    width: 5vmin;
+    -webkit-animation: love-burst 3s infinite 0.75s;
+    animation: love-burst 3s infinite 0.75s;
+    box-shadow: inset 0 0 0 2.5vmin transparent;
+    -webkit-transform: translate(0, 1.1em) scale(0);
+    transform: translate(0, 1.1em) scale(0);
+    -webkit-transform-origin: center bottom;
+    transform-origin: center bottom;
+  }
+  .bubble:nth-child(7) {
+    top: 68%;
+    left: 1%;
+    height: 5vmin;
+    width: 5vmin;
+    -webkit-animation: love-burst 3s infinite 0.9s;
+    animation: love-burst 3s infinite 0.9s;
+    box-shadow: inset 0 0 0 2.5vmin transparent;
+    -webkit-transform: translate(0, 0.15em) scale(0);
+    transform: translate(0, 0.15em) scale(0);
+    -webkit-transform-origin: center bottom;
+    transform-origin: center bottom;
+  }
+  .bubble:nth-child(8) {
+    top: 61%;
+    left: 51%;
+    height: 11vmin;
+    width: 11vmin;
+    -webkit-animation: love-burst 3s infinite 1.05s;
+    animation: love-burst 3s infinite 1.05s;
+    box-shadow: inset 0 0 0 5.5vmin transparent;
+    -webkit-transform: translate(0, 1.05em) scale(0);
+    transform: translate(0, 1.05em) scale(0);
+    -webkit-transform-origin: center bottom;
+    transform-origin: center bottom;
+  }
+  .bubble:nth-child(9) {
+    top: 24%;
+    left: 45%;
+    height: 11vmin;
+    width: 11vmin;
+    -webkit-animation: love-burst 3s infinite 1.2s;
+    animation: love-burst 3s infinite 1.2s;
+    box-shadow: inset 0 0 0 5.5vmin transparent;
+    -webkit-transform: translate(0, 1em) scale(0);
+    transform: translate(0, 1em) scale(0);
+    -webkit-transform-origin: center bottom;
+    transform-origin: center bottom;
+  }
+  .bubble:nth-child(10) {
+    top: 13%;
+    left: 10%;
+    height: 19vmin;
+    width: 19vmin;
+    -webkit-animation: love-burst 3s infinite 1.35s;
+    animation: love-burst 3s infinite 1.35s;
+    box-shadow: inset 0 0 0 9.5vmin transparent;
+    -webkit-transform: translate(0, 1em) scale(0);
+    transform: translate(0, 1em) scale(0);
+    -webkit-transform-origin: center bottom;
+    transform-origin: center bottom;
+  }
+  .bubble:nth-child(11) {
+    top: 76%;
+    left: 7%;
+    height: 14vmin;
+    width: 14vmin;
+    -webkit-animation: love-burst 3s infinite 1.5s;
+    animation: love-burst 3s infinite 1.5s;
+    box-shadow: inset 0 0 0 7vmin transparent;
+    -webkit-transform: translate(0, 0.1em) scale(0);
+    transform: translate(0, 0.1em) scale(0);
+    -webkit-transform-origin: center bottom;
+    transform-origin: center bottom;
+  }
+  .bubble:nth-child(12) {
+    top: 22%;
+    left: 8%;
+    height: 17vmin;
+    width: 17vmin;
+    -webkit-animation: love-burst 3s infinite 1.65s;
+    animation: love-burst 3s infinite 1.65s;
+    box-shadow: inset 0 0 0 8.5vmin transparent;
+    -webkit-transform: translate(0, 0.2em) scale(0);
+    transform: translate(0, 0.2em) scale(0);
+    -webkit-transform-origin: center bottom;
+    transform-origin: center bottom;
+  }
+  .bubble:nth-child(13) {
+    top: 23%;
+    left: 81%;
+    height: 16vmin;
+    width: 16vmin;
+    -webkit-animation: love-burst 3s infinite 1.8s;
+    animation: love-burst 3s infinite 1.8s;
+    box-shadow: inset 0 0 0 8vmin transparent;
+    -webkit-transform: translate(0, 0.1em) scale(0);
+    transform: translate(0, 0.1em) scale(0);
+    -webkit-transform-origin: center bottom;
+    transform-origin: center bottom;
+  }
+  .bubble:nth-child(14) {
+    top: 77%;
+    left: 88%;
+    height: 3vmin;
+    width: 3vmin;
+    -webkit-animation: love-burst 3s infinite 1.95s;
+    animation: love-burst 3s infinite 1.95s;
+    box-shadow: inset 0 0 0 1.5vmin transparent;
+    -webkit-transform: translate(0, 0.45em) scale(0);
+    transform: translate(0, 0.45em) scale(0);
+    -webkit-transform-origin: center bottom;
+    transform-origin: center bottom;
+  }
+  .bubble:nth-child(15) {
+    top: 41%;
+    left: 1%;
+    height: 9vmin;
+    width: 9vmin;
+    -webkit-animation: love-burst 3s infinite 2.1s;
+    animation: love-burst 3s infinite 2.1s;
+    box-shadow: inset 0 0 0 4.5vmin transparent;
+    -webkit-transform: translate(0, 0.05em) scale(0);
+    transform: translate(0, 0.05em) scale(0);
+    -webkit-transform-origin: center bottom;
+    transform-origin: center bottom;
+  }
+  .bubble:nth-child(16) {
+    top: 51%;
+    left: 51%;
+    height: 8vmin;
+    width: 8vmin;
+    -webkit-animation: love-burst 3s infinite 2.25s;
+    animation: love-burst 3s infinite 2.25s;
+    box-shadow: inset 0 0 0 4vmin transparent;
+    -webkit-transform: translate(0, 1.15em) scale(0);
+    transform: translate(0, 1.15em) scale(0);
+    -webkit-transform-origin: center bottom;
+    transform-origin: center bottom;
+  }
+  .bubble:nth-child(17) {
+    top: 37%;
+    left: 65%;
+    height: 11vmin;
+    width: 11vmin;
+    -webkit-animation: love-burst 3s infinite 2.4s;
+    animation: love-burst 3s infinite 2.4s;
+    box-shadow: inset 0 0 0 5.5vmin transparent;
+    -webkit-transform: translate(0, 0.2em) scale(0);
+    transform: translate(0, 0.2em) scale(0);
+    -webkit-transform-origin: center bottom;
+    transform-origin: center bottom;
+  }
+  .bubble:nth-child(18) {
+    top: 11%;
+    left: 83%;
+    height: 18vmin;
+    width: 18vmin;
+    -webkit-animation: love-burst 3s infinite 2.55s;
+    animation: love-burst 3s infinite 2.55s;
+    box-shadow: inset 0 0 0 9vmin transparent;
+    -webkit-transform: translate(0, 0.9em) scale(0);
+    transform: translate(0, 0.9em) scale(0);
+    -webkit-transform-origin: center bottom;
+    transform-origin: center bottom;
+  }
+  .bubble:nth-child(19) {
+    top: 64%;
+    left: 86%;
+    height: 12vmin;
+    width: 12vmin;
+    -webkit-animation: love-burst 3s infinite 2.7s;
+    animation: love-burst 3s infinite 2.7s;
+    box-shadow: inset 0 0 0 6vmin transparent;
+    -webkit-transform: translate(0, 0.65em) scale(0);
+    transform: translate(0, 0.65em) scale(0);
+    -webkit-transform-origin: center bottom;
+    transform-origin: center bottom;
+  }
+  .bubble:nth-child(20) {
+    top: 39%;
+    left: 24%;
+    height: 19vmin;
+    width: 19vmin;
+    -webkit-animation: love-burst 3s infinite 2.85s;
+    animation: love-burst 3s infinite 2.85s;
+    box-shadow: inset 0 0 0 9.5vmin transparent;
+    -webkit-transform: translate(0, 0.2em) scale(0);
+    transform: translate(0, 0.2em) scale(0);
+    -webkit-transform-origin: center bottom;
+    transform-origin: center bottom;
+  }
+  
+  @-webkit-keyframes love-burst {
+    50%,
+    100% {
+      box-shadow: inset 0 0 0 0 rgb(1, 175, 73);
+      -webkit-transform: translate(0, 0) scale(1);
+      transform: translate(0, 0) scale(1);
+    }
+  }
+  
+  @keyframes love-burst {
+    50%,
+    100% {
+      box-shadow: inset 0 0 0 0 rgb(211, 6, 177);
+      -webkit-transform: translate(0, 0) scale(1);
+      transform: translate(0, 0) scale(1);
+    }
+  }
+  .heart {
+    fill: transparent;
+    opacity: 0;
+  }
+  .bubble:nth-child(1) .heart {
+    -webkit-animation: love 3s forwards infinite 0s;
+    animation: love 3s forwards infinite 0s;
+    -webkit-transform: scale(0.5) rotate(-4deg);
+    transform: scale(0.5) rotate(-4deg);
+  }
+  .bubble:nth-child(2) .heart {
+    -webkit-animation: love 3s forwards infinite 0.15s;
+    animation: love 3s forwards infinite 0.15s;
+    -webkit-transform: scale(0.5) rotate(22deg);
+    transform: scale(0.5) rotate(22deg);
+  }
+  .bubble:nth-child(3) .heart {
+    -webkit-animation: love 3s forwards infinite 0.3s;
+    animation: love 3s forwards infinite 0.3s;
+    -webkit-transform: scale(0.5) rotate(-5deg);
+    transform: scale(0.5) rotate(-5deg);
+  }
+  .bubble:nth-child(4) .heart {
+    -webkit-animation: love 3s forwards infinite 0.45s;
+    animation: love 3s forwards infinite 0.45s;
+    -webkit-transform: scale(0.5) rotate(50deg);
+    transform: scale(0.5) rotate(50deg);
+  }
+  .bubble:nth-child(5) .heart {
+    -webkit-animation: love 3s forwards infinite 0.6s;
+    animation: love 3s forwards infinite 0.6s;
+    -webkit-transform: scale(0.5) rotate(-29deg);
+    transform: scale(0.5) rotate(-29deg);
+  }
+  .bubble:nth-child(6) .heart {
+    -webkit-animation: love 3s forwards infinite 0.75s;
+    animation: love 3s forwards infinite 0.75s;
+    -webkit-transform: scale(0.5) rotate(35deg);
+    transform: scale(0.5) rotate(35deg);
+  }
+  .bubble:nth-child(7) .heart {
+    -webkit-animation: love 3s forwards infinite 0.9s;
+    animation: love 3s forwards infinite 0.9s;
+    -webkit-transform: scale(0.5) rotate(-5deg);
+    transform: scale(0.5) rotate(-5deg);
+  }
+  .bubble:nth-child(8) .heart {
+    -webkit-animation: love 3s forwards infinite 1.05s;
+    animation: love 3s forwards infinite 1.05s;
+    -webkit-transform: scale(0.5) rotate(40deg);
+    transform: scale(0.5) rotate(40deg);
+  }
+  .bubble:nth-child(9) .heart {
+    -webkit-animation: love 3s forwards infinite 1.2s;
+    animation: love 3s forwards infinite 1.2s;
+    -webkit-transform: scale(0.5) rotate(-35deg);
+    transform: scale(0.5) rotate(-35deg);
+  }
+  .bubble:nth-child(10) .heart {
+    -webkit-animation: love 3s forwards infinite 1.35s;
+    animation: love 3s forwards infinite 1.35s;
+    -webkit-transform: scale(0.5) rotate(28deg);
+    transform: scale(0.5) rotate(28deg);
+  }
+  .bubble:nth-child(11) .heart {
+    -webkit-animation: love 3s forwards infinite 1.5s;
+    animation: love 3s forwards infinite 1.5s;
+    -webkit-transform: scale(0.5) rotate(-3deg);
+    transform: scale(0.5) rotate(-3deg);
+  }
+  .bubble:nth-child(12) .heart {
+    -webkit-animation: love 3s forwards infinite 1.65s;
+    animation: love 3s forwards infinite 1.65s;
+    -webkit-transform: scale(0.5) rotate(48deg);
+    transform: scale(0.5) rotate(48deg);
+  }
+  .bubble:nth-child(13) .heart {
+    -webkit-animation: love 3s forwards infinite 1.8s;
+    animation: love 3s forwards infinite 1.8s;
+    -webkit-transform: scale(0.5) rotate(-33deg);
+    transform: scale(0.5) rotate(-33deg);
+  }
+  .bubble:nth-child(14) .heart {
+    -webkit-animation: love 3s forwards infinite 1.95s;
+    animation: love 3s forwards infinite 1.95s;
+    -webkit-transform: scale(0.5) rotate(40deg);
+    transform: scale(0.5) rotate(40deg);
+  }
+  .bubble:nth-child(15) .heart {
+    -webkit-animation: love 3s forwards infinite 2.1s;
+    animation: love 3s forwards infinite 2.1s;
+    -webkit-transform: scale(0.5) rotate(-29deg);
+    transform: scale(0.5) rotate(-29deg);
+  }
+  .bubble:nth-child(16) .heart {
+    -webkit-animation: love 3s forwards infinite 2.25s;
+    animation: love 3s forwards infinite 2.25s;
+    -webkit-transform: scale(0.5) rotate(19deg);
+    transform: scale(0.5) rotate(19deg);
+  }
+  .bubble:nth-child(17) .heart {
+    -webkit-animation: love 3s forwards infinite 2.4s;
+    animation: love 3s forwards infinite 2.4s;
+    -webkit-transform: scale(0.5) rotate(-29deg);
+    transform: scale(0.5) rotate(-29deg);
+  }
+  .bubble:nth-child(18) .heart {
+    -webkit-animation: love 3s forwards infinite 2.55s;
+    animation: love 3s forwards infinite 2.55s;
+    -webkit-transform: scale(0.5) rotate(14deg);
+    transform: scale(0.5) rotate(14deg);
+  }
+  .bubble:nth-child(19) .heart {
+    -webkit-animation: love 3s forwards infinite 2.7s;
+    animation: love 3s forwards infinite 2.7s;
+    -webkit-transform: scale(0.5) rotate(-10deg);
+    transform: scale(0.5) rotate(-10deg);
+  }
+  .bubble:nth-child(20) .heart {
+    -webkit-animation: love 3s forwards infinite 2.85s;
+    animation: love 3s forwards infinite 2.85s;
+    -webkit-transform: scale(0.5) rotate(46deg);
+    transform: scale(0.5) rotate(46deg);
+  }
+  
+  @-webkit-keyframes love {
+    50% {
+      fill: rgb(253, 66, 19);
+      opacity: 1;
+    }
+  }
+  
+  @keyframes love {
+    50% {
+      fill: rgb(253, 19, 19);
+      opacity: 1;
+    }
+  }
+  @keyframes float {
+    0% { transform: translateY(0); opacity: 1; }
+    100% { transform: translateY(-50px); opacity: 0; }
+}
+
+@media (max-width: 1024px) {
+    body {
+        flex-direction: column;
+        align-items: center;
+        height: auto;
+        padding: 20px;
+    }
+
+    .counter-container {
+        width: 80%;
+        height: auto;
+        padding: 15px;
+    }
+
+    .video-container {
+        width: 100%;
+        height: 300px;
+    }
+
+    .gift-button {
+        font-size: 18px;
+        padding: 12px;
+    }
+}
+
+/* 📱 Адаптация под мобильные телефоны (до 768px) */
+@media (max-width: 768px) {
+    body {
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+        height: auto;
+        padding: 10px;
+    }
+
+    .counter-container {
+        width: 100%;
+        height: auto;
+        padding: 10px;
+    }
+
+    .video-container {
+        width: 100%;
+        height: 250px;
+    }
+
+    .gift-button {
+        font-size: 16px;
+        padding: 10px;
+    }
+
+    .hearts-container {
+        top: 60%;
+        left: 50%;
+        transform: translate(-50%, -60%);
+    }
+
+    .heart {
+        font-size: 18px;
+    }
+}
+
+
+@media (max-width: 1024px) {
+  .calendar {
+      max-width: 700px;
+      grid-template-columns: repeat(7, 1fr);
+  }
+
+  .day {
+      min-height: 100px;
+      font-size: 16px;
+  }
+
+  .day-number {
+      font-size: 14px;
+  }
+}
+
+/* 📱 Адаптация под мобильные устройства (до 768px) */
+@media (max-width: 768px) {
+  .calendar-container {
+      width: 100%;
+      max-width: 100%;
+      margin-top: 60px;
+
+  }
+
+  .calendar {
+    max-width: 700px;
+    grid-template-columns: repeat(4, 1fr);
+    padding: 10px;
+}
+
+  .bottom-section {
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+  }
+
+  .day {
+    min-height: 90px;
+    width: 90px;
+    font-size: 12px;
+    padding: 3px;
+  }
+
+  .day-number {
+      font-size: 12px;
+      padding: 2px 4px;
+  }
+
+  .track-info {
+      font-size: 9px;
+      padding: 5px;
+  }
+
+  .progress-bar {
+      height: 3px;
+  }
+
+  .play-button {
+      font-size: 8px;
+      padding: 4px 8px;
+  }
+
+  .cover {
+      width: 70%;
+  }
+
+  .bottom-section {
+      flex-direction: column;
+      align-items: center;
+  }
+
+  .notes, .priority {
+    width: 100%;
+  }
+
+  .controls {
+    bottom: 10px;
+    left: 80%;
+    border-radius: 10px;
+    padding: 10px 15px;
+}
+}
+
+@media (min-width: 769px) {
+  .controls {
+      position: fixed;
+      bottom: 20px;
+      right: 5px;
+      border-radius: 5px;
+  }
+}
