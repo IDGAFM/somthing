@@ -86,76 +86,14 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 
-function generateCalendar(year, month) {
-    let container = document.getElementById("calendar");
-    let monthTitle = document.getElementById("month-title");
-    container.innerHTML = "";
-    let monthNames = ["Январь", "Февраль", "Март", "Апрель", "Май", "Июнь", "Июль", "Август", "Сентябрь", "Октябрь", "Ноябрь", "Декабрь"];
-    let firstDay = new Date(year, month, 1).getDay();
-    let daysInMonth = new Date(year, month + 1, 0).getDate();
-    monthTitle.textContent = `${monthNames[month]} ${year}`;
-    localStorage.setItem("year", year);
-    localStorage.setItem("month", month);
-
-    for (let i = 0; i < (firstDay === 0 ? 6 : firstDay - 1); i++) {
-        let emptyDiv = document.createElement("div");
-        emptyDiv.className = "empty";
-        container.appendChild(emptyDiv);
-    }
-    for (let day = 1; day <= daysInMonth; day++) {
-        let dayDiv = document.createElement("div");
-        dayDiv.className = "day";
-        dayDiv.textContent = day;
-        container.appendChild(dayDiv);
-    }
-    document.getElementById("priority-text").value = localStorage.getItem(`priority_${year}_${month}`) || "";
-    document.getElementById("notes-text").value = localStorage.getItem(getNotesKey(year, month)) || "";
-
-    document.getElementById("prev-btn").disabled = (year === minYear && month === minMonth);
-}
-
-function savePlayerState() {
-    if (currentAudio) {
-        localStorage.setItem("player_track", currentAudio.src);
-        localStorage.setItem("player_time", currentAudio.currentTime);
-        localStorage.setItem("player_playing", !currentAudio.paused);
-    }
-}
-
-function nextMonth() {
-    currentMonth++;
-    if (currentMonth > 11) {
-        currentMonth = 0;
-        currentYear++;
-    }
-    generateCalendar(currentYear, currentMonth);
-}
-
-function prevMonth() {
-    if (currentYear === minYear && currentMonth === minMonth) return;
-    currentMonth--;
-    if (currentMonth < 0) {
-        currentMonth = 11;
-        currentYear--;
-    }
-    generateCalendar(currentYear, currentMonth);
-}
-
-document.getElementById("priority-text").addEventListener("input", () => {
-    localStorage.setItem(`priority_${currentYear}_${currentMonth}`, document.getElementById("priority-text").value);
-});
-document.getElementById("notes-text").addEventListener("input", () => {
-    localStorage.setItem(getNotesKey(currentYear, currentMonth), document.getElementById("notes-text").value);
-});
-
-generateCalendar(currentYear, currentMonth);
+function September2023(){
 
 
-document.addEventListener("DOMContentLoaded", function () {
     const calendar = document.getElementById("calendar");
     const monthTitle = document.getElementById("month-title");
 
     monthTitle.innerText = "Сентябрь 2023";
+    calendar.innerHTML = ""; // Очищаем перед загрузкой
 
     const musicData = {
         1: {
@@ -540,7 +478,91 @@ document.addEventListener("DOMContentLoaded", function () {
         day.appendChild(playButton);
 
     }
-    
-    
+
+}
+
+function generateCalendar(year, month) {
+    if(year === 2023 && month == 8){
+        September2023()
+        return
+    }
+
+    let container = document.getElementById("calendar");
+    let monthTitle = document.getElementById("month-title");
+    container.innerHTML = "";
+    let monthNames = ["Январь", "Февраль", "Март", "Апрель", "Май", "Июнь", "Июль", "Август", "Сентябрь", "Октябрь", "Ноябрь", "Декабрь"];
+    let firstDay = new Date(year, month, 1).getDay();
+    let daysInMonth = new Date(year, month + 1, 0).getDate();
+    monthTitle.textContent = `${monthNames[month]} ${year}`;
+    localStorage.setItem("year", year);
+    localStorage.setItem("month", month);
+
+    for (let i = 0; i < (firstDay === 0 ? 6 : firstDay - 1); i++) {
+        let emptyDiv = document.createElement("div");
+        emptyDiv.className = "empty";
+        container.appendChild(emptyDiv);
+    }
+    for (let day = 1; day <= daysInMonth; day++) {
+        let dayDiv = document.createElement("div");
+        dayDiv.className = "day";
+        dayDiv.textContent = day;
+        container.appendChild(dayDiv);
+    }
+    document.getElementById("priority-text").value = localStorage.getItem(`priority_${year}_${month}`) || "";
+    document.getElementById("notes-text").value = localStorage.getItem(getNotesKey(year, month)) || "";
+
+    document.getElementById("prev-btn").disabled = (year === minYear && month === minMonth);
+}
+
+function savePlayerState() {
+    if (currentAudio) {
+        localStorage.setItem("player_track", currentAudio.src);
+        localStorage.setItem("player_time", currentAudio.currentTime);
+        localStorage.setItem("player_playing", !currentAudio.paused);
+    }
+}
+
+function nextMonth() {
+    currentMonth++;
+    if (currentMonth > 11) {
+        currentMonth = 0;
+        currentYear++;
+    }
+    generateCalendar(currentYear, currentMonth);
+}
+
+function prevMonth() {
+    if (currentYear === minYear && currentMonth === minMonth) return; // Достигли минимума
+
+    if (currentYear === 2023 && currentMonth === 9) {
+        currentMonth = 8; // Переход на сентябрь 2023
+        localStorage.setItem("year", currentYear);
+        localStorage.setItem("month", currentMonth);
+        document.getElementById("month-title").textContent = "Сентябрь 2023"; // Обновление заголовка
+
+        document.getElementById("calendar").innerHTML = ""; // Очистка календаря перед загрузкой кастомного
+
+        September2023(); // Принудительно вызываем кастомный календарь
+        return; // Останавливаем дальнейшее выполнение
+    }
+
+    currentMonth--;
+    if (currentMonth < 0) {
+        currentMonth = 11;
+        currentYear--;
+    }
+
+    generateCalendar(currentYear, currentMonth);
+}
+
+
+
+
+document.getElementById("priority-text").addEventListener("input", () => {
+    localStorage.setItem(`priority_${currentYear}_${currentMonth}`, document.getElementById("priority-text").value);
+});
+document.getElementById("notes-text").addEventListener("input", () => {
+    localStorage.setItem(getNotesKey(currentYear, currentMonth), document.getElementById("notes-text").value);
 });
 
+generateCalendar(currentYear, currentMonth);
