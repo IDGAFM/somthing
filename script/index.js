@@ -103,10 +103,10 @@ function September2023(){
             duration: "02:54"
         },
         2: {
-            cover: "assets/img/myloveall.png",
-            track: "assets/mus/Cavetown - My Love Mine All Mine (Mitski Cover).mp3",
-            title: "My love all mine all mine",
-            duration: "03:15"
+            cover: "assets/img/del.png",
+            track: "assets/mus/КАК ДЕЛИШКИ.mp3",
+            title: "Как делишки у моей малышки",
+            duration: "04:10"
         },
         3: {
             cover: "assets/img/loveme.png",
@@ -235,10 +235,10 @@ function September2023(){
             duration: "02:15"
         },
         24: {
-            cover: "assets/img/del.png",
-            track: "assets/mus/КАК ДЕЛИШКИ.mp3",
-            title: "Как делишки у моей малышки",
-            duration: "04:10"
+            cover: "assets/img/myloveall.png",
+            track: "assets/mus/Cavetown - My Love Mine All Mine (Mitski Cover).mp3",
+            title: "My love all mine all mine",
+            duration: "03:15"
         },
         25: {
             cover: "assets/img/train.png",
